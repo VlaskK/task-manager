@@ -1,0 +1,96 @@
+.add-btn {
+    cursor: pointer;
+}
+
+.add-todo__when-text {
+    color: black;
+}
+
+.add-btn:hover {
+    color: rgb(156, 45, 45);
+}
+
+.add-btn__text {
+    margin-left: 10px;
+}
+
+.add-extended__task-editor {
+    border: 1px solid rgb(216, 213, 213);
+    width: 800px;
+    height: 132px;
+}
+
+
+.add-extended__inputs {
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+}
+.add-extended__task-input {
+    padding: 5px;
+    border: none;
+    outline: none;
+    width: 777px;
+    height: 21px;
+}
+
+.add-extended__conf-btns {
+    display: flex;
+    align-items: flex-end;
+}
+
+.add-extended__conf-btn {
+    margin: 8px;
+    border: 1px solid rgb(216, 213, 213);
+    background-color: white;
+    border-radius: 5px;
+    width: 15%;
+    height: 28px;
+}
+.add-extended__conf-btn:hover {
+    background-color: rgb(197, 190, 190);
+    cursor: pointer;
+}
+
+.add-extended__final-btns {
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.add-extended__final-cancel {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 213, 213);
+    margin: 0 10px;
+    cursor: pointer;
+    width: 72px;
+    height: 32px;
+}
+.add-extended__final-cancel:hover {
+    background-color: rgb(197, 190, 190);
+    cursor: pointer;
+}
+
+.add-extended__final-add {
+    background-color: #d82240;
+    color: white;
+    border: 1px solid rgb(216, 213, 213);
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+    width: 135px;
+    height: 32px;
+}
+
+.add-extended__final-add:disabled {
+    background-color: #fa6780;
+    color: white;
+    border: 1px solid rgb(216, 213, 213);
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: not-allowed;
+    width: 135px;
+    height: 32px;
+}
+
