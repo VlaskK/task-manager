@@ -4,6 +4,7 @@ const todoSlice = createSlice({
     name: "todo",
     initialState: {
         todos: [],
+        formIsShown: false, 
     },
     reducers: {
         addTodo: (state, action) => {
@@ -12,11 +13,11 @@ const todoSlice = createSlice({
         removeTodo: (state, action) => {
             state.todos = state.todos.filter(todo => todo.id !== action.payload)
         },
-        // editTodo: (state, action) => {
-        //     state.todos = state.todos.map(todo => )
-        // }
+        setFormIsShown: (state, action) => {
+            state.formIsShown = action.payload
+        }
     }
 });
 
-export const {addTodo, removeTodo} = todoSlice.actions;
+export const {addTodo, removeTodo, setFormIsShown} = todoSlice.actions;
 export default todoSlice.reducer;

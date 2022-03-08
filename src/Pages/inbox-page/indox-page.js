@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import AddTodo from '../../Components/addTodo/add-todo';
+import AddTodo from '../../Components/add-todo/add-todo';
 import TodoList from '../../Components/todo-list/todo-list';
 
 import "./inbox-page.css";

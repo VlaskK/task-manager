@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddTodo from '../../Components/addTodo/add-todo';
+import AddTodo from '../../Components/add-todo/add-todo';
 import "./upcoming-page.css";
 const UpComingPage = () => {
     return (

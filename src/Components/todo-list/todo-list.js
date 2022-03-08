@@ -9,7 +9,7 @@ const TodoList = () => {
 
     return (
         <div className='todo-list'>
-            {todoList.map((todo) => <Todo todo={todo}/>)}
+            {todoList.map((todo) => <Todo todo={todo} key={`${todo.id}`}/>)}
         </div>
     );
 }

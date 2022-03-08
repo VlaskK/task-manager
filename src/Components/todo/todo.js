@@ -18,7 +18,7 @@ const Todo = ({todo}) => {
     }
 
     return (
-        <div className='todo' key={nanoid(8)}>
+        <div className='todo'>
             <input type="radio" className='todo__checkbox' onChange={completeTodo} />
             <div className='todo__content'>
                 <span className='todo__spans'>

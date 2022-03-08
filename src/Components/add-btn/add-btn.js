@@ -1,16 +1,21 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setFormIsShown } from '../../Store/todo/reducer';
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import "./add-btn.css";
-const AddBtn = ({handleClick, when}) => {
+const AddBtn = ({ when}) => {
 
     const [isShown, setIsShown] = useState(false);
+    const dispatch = useDispatch();
+
+
     return (
         <div className='add-btn'
             onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}
-            onClick={handleClick}>  
+            onClick={() => dispatch(setFormIsShown(true))}>  
             <h2 className='add-todo__when-text'>{when}</h2>
             {isShown ? <BsFillPlusCircleFill color='red' />
                 : <AiOutlinePlus color='red' className='add-btn__icon' />}
@@ -20,3 +25,4 @@ const AddBtn = ({handleClick, when}) => {
 }
 
 export default AddBtn;
+
