@@ -2,14 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { addTodo, removeTodo } from '../../Store/todo/reducer';
-import { AiOutlinePlus } from "react-icons/ai";
-import { BsFillPlusCircleFill } from "react-icons/bs";
+import { addTodo } from '../../Store/todo/reducer';
+import AddBtn from '../add-btn/add-btn';
 
 import "./add-todo.css"
 const AddTodo = ({ when }) => {
     const [addClicked, setAddClicked] = useState(false);
-    const [isShown, setIsShown] = useState(false);
 
     const [todoText, setTodoText] = useState("");
     const [todoDesc, setTodoDesc] = useState("");
@@ -35,12 +33,10 @@ const AddTodo = ({ when }) => {
         }
         console.log(newTodo);
         dispatch(addTodo(newTodo));
-
+        setAddClicked(false);
         clearState();
 
     }
-
-
 
     return (
         <div className='add-todo'>
@@ -78,15 +74,9 @@ const AddTodo = ({ when }) => {
                     </div>
                 </div>
 
-                : <div className='add-btn'
-                    onMouseEnter={() => setIsShown(true)}
-                    onMouseLeave={() => setIsShown(false)}
-                    onClick={() => setAddClicked(true)}>
-                    <h2 className='add-todo__when-text'>{when}</h2>
-                    {isShown ? <BsFillPlusCircleFill color='red' />
-                        : <AiOutlinePlus color='red' className='add-btn__icon' />}
-                    <span className='add-btn__text'>Добавить задачу</span>
-                </div>}
+                : <AddBtn handleClick={() => setAddClicked(true)} when={when}/>
+                
+                }
         </div>
     );
 }

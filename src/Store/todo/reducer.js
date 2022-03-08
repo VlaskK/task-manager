@@ -10,7 +10,7 @@ const todoSlice = createSlice({
             state.todos.push(action.payload)
         },
         removeTodo: (state, action) => {
-            state.todos = state.todos.map(todo => todo.id !== action.payload)
+            state.todos = state.todos.filter(todo => todo.id !== action.payload)
         },
         // editTodo: (state, action) => {
         //     state.todos = state.todos.map(todo => )
