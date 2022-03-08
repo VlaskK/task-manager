@@ -1,0 +1,15 @@
+.add-btn {
+    cursor: pointer;
+}
+
+.add-todo__when-text {
+    color: black;
+}
+
+.add-btn:hover {
+    color: rgb(156, 45, 45);
+}
+
+.add-btn__text {
+    margin-left: 10px;
+}
