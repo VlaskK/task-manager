@@ -1,16 +1,16 @@
-.add-extended__task-editor {
+.add-form__task-editor {
     border: 1px solid rgb(216, 213, 213);
     width: 800px;
     height: 132px;
 }
 
 
-.add-extended__inputs {
+.add-form__inputs {
     margin: 10px 5px;
     display: flex;
     flex-direction: column;
 }
-.add-extended__task-input {
+.add-form__task-input {
     padding: 5px;
     border: none;
     outline: none;
@@ -18,12 +18,12 @@
     height: 21px;
 }
 
-.add-extended__conf-btns {
+.add-form__conf-btns {
     display: flex;
     align-items: flex-end;
 }
 
-.add-extended__conf-btn {
+.add-form__conf-btn {
     margin: 8px;
     border: 1px solid rgb(216, 213, 213);
     background-color: white;
@@ -31,18 +31,18 @@
     width: 15%;
     height: 28px;
 }
-.add-extended__conf-btn:hover {
+.add-form__conf-btn:hover {
     background-color: rgb(197, 190, 190);
     cursor: pointer;
 }
 
-.add-extended__final-btns {
+.add-form__final-btns {
     margin: 10px;
     display: flex;
     justify-content: flex-start;
 }
 
-.add-extended__final-cancel {
+.add-form__final-cancel {
     background-color: white;
     border-radius: 5px;
     border: 1px solid rgb(216, 213, 213);
@@ -51,12 +51,12 @@
     width: 72px;
     height: 32px;
 }
-.add-extended__final-cancel:hover {
+.add-form__final-cancel:hover {
     background-color: rgb(197, 190, 190);
     cursor: pointer;
 }
 
-.add-extended__final-add {
+.add-form__final-add {
     background-color: #d82240;
     color: white;
     border: 1px solid rgb(216, 213, 213);
@@ -67,7 +67,7 @@
     height: 32px;
 }
 
-.add-extended__final-add:disabled {
+.add-form__final-add:disabled {
     background-color: #fa6780;
     color: white;
     border: 1px solid rgb(216, 213, 213);

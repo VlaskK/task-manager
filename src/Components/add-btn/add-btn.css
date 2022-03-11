@@ -13,3 +13,22 @@
 .add-btn__text {
     margin-left: 10px;
 }
+
+.add-btn__filled-icon {
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.add-btn__empty-icon{
+    opacity: 1;
+    transition: .3s ease;
+}
+
+.add-btn:hover .add-btn__filled-icon{
+    opacity: 1;
+}
+
+.add-btn:hover .add-btn__empty-icon{
+   opacity: 0;
+   position: absolute;
+}
