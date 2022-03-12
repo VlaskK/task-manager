@@ -5,6 +5,7 @@ const todoSlice = createSlice({
     initialState: {
         todos: [],
         formIsShown: false,
+        termIsShown: false,
         editTodoId: null,
     },
     reducers: {
@@ -20,11 +21,14 @@ const todoSlice = createSlice({
         setFormIsShown: (state, action) => {
             state.formIsShown = action.payload
         },
+        setTermIsShown: (state, action) => {
+            state.termIsShown = action.payload
+        },
         setEditTodoId: (state, action) => {
             state.editTodoId = action.payload
         }
     }
 });
 
-export const { addTodo, removeTodo, editTodo, setFormIsShown, setEditTodoId } = todoSlice.actions;
+export const { addTodo, removeTodo, editTodo, setFormIsShown, setEditTodoId, setTermIsShown } = todoSlice.actions;
 export default todoSlice.reducer;

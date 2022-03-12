@@ -1,17 +1,23 @@
 .add-btn {
+    margin-top: 10px;
     cursor: pointer;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    margin-left: -2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.add-todo__when-text {
-    color: black;
-}
 
 .add-btn:hover {
     color: rgb(156, 45, 45);
 }
 
-.add-btn__text {
-    margin-left: 10px;
+.add-btn__icon {
+    width: 30px;
+    height: 15px;
 }
 
 .add-btn__filled-icon {
@@ -20,6 +26,7 @@
 }
 
 .add-btn__empty-icon{
+    position: absolute;
     opacity: 1;
     transition: .3s ease;
 }
@@ -30,5 +37,4 @@
 
 .add-btn:hover .add-btn__empty-icon{
    opacity: 0;
-   position: absolute;
 }

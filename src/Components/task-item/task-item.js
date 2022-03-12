@@ -1,9 +1,12 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import { RiTodoLine } from "react-icons/ri";
 import "./task-item.css"
 
 const TaskItem = () => {
+
+    const todos = useSelector(state => state.todo.todos);
+
     return (
         <div className='task-item'>
             <RiTodoLine size={25} className='task-item__icon'/>

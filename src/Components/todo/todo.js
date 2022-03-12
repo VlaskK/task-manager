@@ -23,14 +23,14 @@ const Todo = ({ todo }) => {
     return (
         <div className='todo'>
             {
-                editTodoId === todo.id ? <AddForm when={todo.term} />
+                editTodoId === todo.id ? <AddForm when={todo.term} className="add-form"/>
                     : <div className='todo-item'>
                         <input type="radio" className='todo__checkbox' onChange={completeTodo} />
                         <div className='todo__content'>
-                            <span className='todo__spans'>
-                                <span className='todo__text'>{todo.text}</span>
-                                <span className='todo__desc'><br /> {todo.desc}</span>
-                            </span>
+                            <div className='todo__spans'>
+                                <div className='todo__text'>{todo.text}</div>
+                                <div className='todo__desc'>{todo.desc}</div>
+                            </div>
                             <AiOutlineEdit className='todo__edit' size={20} onClick={editTodo} />
                         </div>
                     </div>

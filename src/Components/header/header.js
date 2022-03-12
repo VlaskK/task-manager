@@ -14,12 +14,9 @@ const Header = () => {
     
     const dispatch = useDispatch();
 
-
     const handleClick = () => {
         dispatch(setIsVisible())
     }
-
-
 
     return (
         <div>

@@ -1,2 +1,15 @@
+.add-todo {
+    width: 100%;
+}
 
+.add-form {
+    width: 80%;
+}
 
+.add-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    bottom: 15px;
+}

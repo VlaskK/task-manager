@@ -1,21 +1,26 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFormIsShown, setEditTodoId, editTodo } from '../../Store/todo/reducer';
+import { useRef } from 'react';
+import { setFormIsShown, setEditTodoId, setTermIsShown, editTodo } from '../../Store/todo/reducer';
 import { nanoid } from 'nanoid';
 import { addTodo } from '../../Store/todo/reducer';
+import Term from '../term/term';
 import "./add-form.css";
 
-const AddForm = ({ when }) => {
+const AddForm = () => {
 
     const [todoText, setTodoText] = useState("");
     const [todoDesc, setTodoDesc] = useState("");
     const [todoTerm, setTodoTerm] = useState(null);
     const [todoProject, setTodoProject] = useState(null);
 
+
     const dispatch = useDispatch();
     const todo = useSelector(state => state.todo.todos);
     const editTodoId = useSelector(state => state.todo.editTodoId);
+    const isTermShown = useSelector(state => state.todo.termIsShown);
+    const term = useSelector(state => state.calendar.term);
 
     useEffect(() => {
         if (editTodoId) {
@@ -62,10 +67,14 @@ const AddForm = ({ when }) => {
         }
     }
 
+    const handleTerm = () => {
+        dispatch(setTermIsShown(true));
+        setTodoTerm(term);
+    }
+
 
     return (
         <div className='add-form'>
-            <h2 className='add-todo__when-text'>{when}</h2>
             <div className='add-form__task-editor'>
                 <div className="add-form__inputs">
                     <input type="text"
@@ -81,7 +90,7 @@ const AddForm = ({ when }) => {
                 </div>
 
                 <div className="add-form__conf-btns">
-                    <button type="button" className="term-btn add-form__conf-btn">
+                    <button type="button" className="term-btn add-form__conf-btn" onClick={ handleTerm }>
                         <span className='task-button__text'>Срок</span>
                     </button>
                     <button type="button" className='project-btn add-form__conf-btn'>
@@ -102,6 +111,7 @@ const AddForm = ({ when }) => {
                 }
                 <button className='add-form__final-cancel' onClick={() => clearState()}>Отмена</button>
             </div>
+            {isTermShown && <Term />}
         </div>
     );
 }

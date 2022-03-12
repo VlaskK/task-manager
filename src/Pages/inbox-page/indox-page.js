@@ -11,8 +11,11 @@ const InboxPage = () => {
 
     return (
         <div className='inbox-page'>
-            {todoList.length > 0 && <TodoList/>}
-            <AddTodo when="Входящие" className="inbox-page__add-todo"/>
+            <div className='inbox-page__title'>
+                <h2>Входящие</h2>
+            </div>
+            {todoList.length > 0 && <TodoList className="inbox-page__todo-list"/>}
+            <AddTodo className="inbox-page__add-todo"/>
         </div>
     );
 }

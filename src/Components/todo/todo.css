@@ -1,6 +1,12 @@
 .todo {
-    /* display: flex;
-    justify-content: center; */
+    width: 80%;
+    margin-top: 15px;
+}
+
+.todo-item {
+    height: 35px;
+    border-bottom: thin solid rgb(212, 212, 212);
+    padding-bottom: 5px;
 }
 
 .todo__checkbox {
@@ -10,13 +16,18 @@
 }
 .todo__content {
     margin: auto 20px;
+    display: flex;
+    justify-content: space-between;
     position: relative;
     bottom: 25px;
     left: 10px;
-    border-bottom: thin solid rgb(212, 212, 212);
-    display: flex;
-    justify-content: space-between;
 }
+
+.todo__spans {
+    display: flex;
+    flex-direction: column;
+}
+
 .todo__text {
     font-size: 14px;
 }
@@ -27,8 +38,11 @@
 }
 
 .todo__edit {
-    position: relative;
+    position: relative; 
     cursor: pointer;
-    margin: 20px;
-    bottom: 10px;
+    left: 10px;
+    top: 10px
+}
+.add-form {
+    width: 100%;
 }
