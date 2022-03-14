@@ -19,7 +19,7 @@ const App = () => {
       <Router>
         <div className="App">
           <Header className="Header" />
-          <Menu />
+          {/* <Menu /> */}
           <Switch>
             <Route exact path="/inbox" element={<InboxPage/>}/>
             <Route exact path="/today" element={<TodayPage/>}/>

@@ -1,5 +1,7 @@
 .Menu {
     position: fixed;
+    top: 41.5px;
+    left: 0px;
     background-color: #E8E8E8;
     transition: left .25s cubic-bezier(.4, 0, .2, 1);
     width: 15%;

@@ -68,6 +68,29 @@ const AddForm = () => {
         }
     }
 
+
+
+
+    function isEqual(object1, object2) {
+        const props1 = Object.getOwnPropertyNames(object1);
+        const props2 = Object.getOwnPropertyNames(object2);
+      
+        if (props1.length !== props2.length) {
+          return false;
+        }
+      
+        for (let i = 0; i < props1.length; i += 1) {
+          const prop = props1[i];
+      
+          if (object1[prop] !== object2[prop]) {
+            return false;
+          }
+        }
+      
+        return true;
+      }
+      
+
     const getTermStr = () => {
         const today = new Date();
         const tomorrow = new Date(today);
@@ -75,8 +98,10 @@ const AddForm = () => {
 
         const todayTerm = parseDate(today.toString());
         const tomorrowTerm = parseDate(tomorrow.toString());
+
+
         switch (todoTerm) {
-            case todayTerm:
+            case (todayTerm):
                 return ("Сегодня")
             case tomorrowTerm:
                 return ("Завтра")
