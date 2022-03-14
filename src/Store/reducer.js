@@ -6,8 +6,8 @@ const menuSlice = createSlice({
         isVisible: false
     },
     reducers: {
-        setIsVisible : (state) => {
-            state.isVisible = !state.isVisible;
+        setIsVisible : (state, action) => {
+            state.isVisible = action.payload;
         }
     }
 });

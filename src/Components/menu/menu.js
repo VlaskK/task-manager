@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useRef } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import { setIsVisible } from '../../Store/reducer';
 import { AiOutlineInbox } from "react-icons/ai";
 import { BsCalendarDate } from "react-icons/bs";
 import { BsCalendar3 } from "react-icons/bs";
 
 import "./menu.css";
 
-const Menu = (props) => {
+const Menu = () => {
 
     const dispatch = useDispatch();
     const isVisible = useSelector(state => state.menu.isVisible);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        const onClick = (e) => menuRef.current.contains(e.target) || console.log("event")//dispatch(setIsVisible(false));
+        document.addEventListener('click', onClick);
+        //return () => document.removeEventListener('click', onClick); 
+    },[]);
 
     return (
         isVisible ? (
-            <div className='Menu'>
+            <div className='Menu' ref={menuRef}>
                 <ul className='Menu__list-items'>
                     <li className='Menu__item'>
                         <Link to="/inbox" className='Menu__item-link'>

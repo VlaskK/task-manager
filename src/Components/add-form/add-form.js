@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRef } from 'react';
 import { setFormIsShown, setEditTodoId, setTermIsShown, editTodo } from '../../Store/todo/reducer';
 import { nanoid } from 'nanoid';
 import { addTodo } from '../../Store/todo/reducer';
+import parseDate from '../../utils/dateParser';
 import Term from '../term/term';
 import "./add-form.css";
 
@@ -20,7 +20,6 @@ const AddForm = () => {
     const todo = useSelector(state => state.todo.todos);
     const editTodoId = useSelector(state => state.todo.editTodoId);
     const isTermShown = useSelector(state => state.todo.termIsShown);
-    const term = useSelector(state => state.calendar.term);
 
     useEffect(() => {
         if (editTodoId) {
@@ -29,7 +28,8 @@ const AddForm = () => {
             setTodoDesc(editedTodo.desc);
             setTodoTerm(editedTodo.term);
             setTodoProject(editedTodo.project);
-        }
+        } 
+
     }, [])
 
     const clearState = () => {
@@ -40,6 +40,7 @@ const AddForm = () => {
 
         dispatch(setFormIsShown(false));
         dispatch(setEditTodoId(null));
+        dispatch(setTermIsShown(false));
     }
 
     const handleAdd = () => {
@@ -67,9 +68,24 @@ const AddForm = () => {
         }
     }
 
-    const handleTerm = () => {
-        dispatch(setTermIsShown(true));
-        setTodoTerm(term);
+    const getTermStr = () => {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        const todayTerm = parseDate(today.toString());
+        const tomorrowTerm = parseDate(tomorrow.toString());
+        switch (todoTerm) {
+            case todayTerm:
+                return ("Сегодня")
+            case tomorrowTerm:
+                return ("Завтра")
+            case null:
+                return ("Срок")
+            default: 
+                return `${todoTerm.dayOfMonth} ${todoTerm.month}`
+        }
+
     }
 
 
@@ -90,8 +106,8 @@ const AddForm = () => {
                 </div>
 
                 <div className="add-form__conf-btns">
-                    <button type="button" className="term-btn add-form__conf-btn" onClick={ handleTerm }>
-                        <span className='task-button__text'>Срок</span>
+                    <button type="button" className="term-btn add-form__conf-btn" onClick={ () => dispatch(setTermIsShown(true)) }>
+                        <span className='task-button__text'>{getTermStr()}</span>
                     </button>
                     <button type="button" className='project-btn add-form__conf-btn'>
                         <span className='task-button__text'>Входящие</span>
@@ -111,7 +127,7 @@ const AddForm = () => {
                 }
                 <button className='add-form__final-cancel' onClick={() => clearState()}>Отмена</button>
             </div>
-            {isTermShown && <Term />}
+            {isTermShown && <Term setTodoTerm={setTodoTerm}/>}
         </div>
     );
 }

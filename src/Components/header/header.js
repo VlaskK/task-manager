@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setIsVisible } from '../../Store/reducer';
 import { FiSettings } from "react-icons/fi";
 import { BiNotification } from "react-icons/bi";
@@ -13,9 +13,10 @@ import "./header.css"
 const Header = () => {
     
     const dispatch = useDispatch();
+    const isMenuVisible = useSelector(state => state.menu.isVisible);
 
     const handleClick = () => {
-        dispatch(setIsVisible())
+        dispatch(setIsVisible(!isMenuVisible));
     }
 
     return (
