@@ -30,7 +30,6 @@ const Term = ({ setTodoTerm }) => {
             setDate(e);
             setTodoTerm(newDate);
             dispatch(setTermIsShown(false));
-
         }
     }
 

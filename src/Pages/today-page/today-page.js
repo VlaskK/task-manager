@@ -1,13 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPage } from '../../Store/reducer';
 import TodoList from '../../Components/todo-list/todo-list';
 import AddTodo from '../../Components/add-todo/add-todo';
 import "./today-page.css";
 
 const TodayPage = () => {
 
+    const dispatch = useDispatch();
     const todoList = useSelector(state => state.todo.todos);
-
+    dispatch(setPage("Сегодня"));
+    
     return (
         <div className='today-page'>
             <div className="today-page__title">

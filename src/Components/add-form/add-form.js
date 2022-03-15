@@ -5,6 +5,7 @@ import { setFormIsShown, setEditTodoId, setTermIsShown, editTodo } from '../../S
 import { nanoid } from 'nanoid';
 import { addTodo } from '../../Store/todo/reducer';
 import parseDate from '../../utils/dateParser';
+import isEqual from '../../utils/object-comparator';
 import Term from '../term/term';
 import "./add-form.css";
 
@@ -14,7 +15,6 @@ const AddForm = () => {
     const [todoDesc, setTodoDesc] = useState("");
     const [todoTerm, setTodoTerm] = useState(null);
     const [todoProject, setTodoProject] = useState(null);
-
 
     const dispatch = useDispatch();
     const todo = useSelector(state => state.todo.todos);
@@ -28,8 +28,7 @@ const AddForm = () => {
             setTodoDesc(editedTodo.desc);
             setTodoTerm(editedTodo.term);
             setTodoProject(editedTodo.project);
-        } 
-
+        }
     }, [])
 
     const clearState = () => {
@@ -68,29 +67,6 @@ const AddForm = () => {
         }
     }
 
-
-
-
-    function isEqual(object1, object2) {
-        const props1 = Object.getOwnPropertyNames(object1);
-        const props2 = Object.getOwnPropertyNames(object2);
-      
-        if (props1.length !== props2.length) {
-          return false;
-        }
-      
-        for (let i = 0; i < props1.length; i += 1) {
-          const prop = props1[i];
-      
-          if (object1[prop] !== object2[prop]) {
-            return false;
-          }
-        }
-      
-        return true;
-      }
-      
-
     const getTermStr = () => {
         const today = new Date();
         const tomorrow = new Date(today);
@@ -99,17 +75,14 @@ const AddForm = () => {
         const todayTerm = parseDate(today.toString());
         const tomorrowTerm = parseDate(tomorrow.toString());
 
+        const isToday = isEqual(todoTerm, todayTerm);
+        const isTomorrow = isEqual(todoTerm, tomorrowTerm);
 
-        switch (todoTerm) {
-            case (todayTerm):
-                return ("Сегодня")
-            case tomorrowTerm:
-                return ("Завтра")
-            case null:
-                return ("Срок")
-            default: 
-                return `${todoTerm.dayOfMonth} ${todoTerm.month}`
-        }
+        if (isToday) return "Сегодня";
+        if (isTomorrow) return "Завтра";
+        if (!todoTerm) return "Срок";
+
+        return `${todoTerm.dayOfMonth} ${todoTerm.month}`
 
     }
 
@@ -129,9 +102,8 @@ const AddForm = () => {
                         value={todoDesc}
                         onChange={(e) => setTodoDesc(e.target.value)} />
                 </div>
-
                 <div className="add-form__conf-btns">
-                    <button type="button" className="term-btn add-form__conf-btn" onClick={ () => dispatch(setTermIsShown(true)) }>
+                    <button type="button" className="term-btn add-form__conf-btn" onClick={() => dispatch(setTermIsShown(true))}>
                         <span className='task-button__text'>{getTermStr()}</span>
                     </button>
                     <button type="button" className='project-btn add-form__conf-btn'>
@@ -139,7 +111,6 @@ const AddForm = () => {
                     </button>
                 </div>
             </div>
-
             <div className='add-form__final-btns'>
                 {
                     todoText ?
@@ -152,7 +123,7 @@ const AddForm = () => {
                 }
                 <button className='add-form__final-cancel' onClick={() => clearState()}>Отмена</button>
             </div>
-            {isTermShown && <Term setTodoTerm={setTodoTerm}/>}
+            {isTermShown && <Term setTodoTerm={setTodoTerm} />}
         </div>
     );
 }

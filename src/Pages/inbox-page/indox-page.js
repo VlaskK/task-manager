@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPage } from '../../Store/reducer';
 import AddTodo from '../../Components/add-todo/add-todo';
 import TodoList from '../../Components/todo-list/todo-list';
 
@@ -7,7 +8,9 @@ import "./inbox-page.css";
 
 const InboxPage = () => {
 
+    const dispatch = useDispatch();
     const todoList = useSelector(state => state.todo.todos);
+    dispatch(setPage("Входяшие"));
 
     return (
         <div className='inbox-page'>
