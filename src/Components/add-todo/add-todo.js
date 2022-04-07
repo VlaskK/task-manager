@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import AddBtn from '../add-btn/add-btn';
 import AddForm from '../add-form/add-form';
 
-import "./add-todo.css";
+import "./add-todo.scss";
 const AddTodo = () => {
 
     const formIsShown = useSelector(state => state.todo.formIsShown);
@@ -11,8 +11,8 @@ const AddTodo = () => {
     return (
         <div className='add-todo'>
             {formIsShown ?
-                <AddForm className="add-form"/>
-                : <AddBtn className="add-btn"/>
+                <AddForm className="add-todo__form"/>
+                : <AddBtn className="add-todo__btn"/>
             }
         </div>
     );

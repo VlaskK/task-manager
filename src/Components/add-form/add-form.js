@@ -7,7 +7,7 @@ import { addTodo } from '../../Store/todo/reducer';
 import parseDate from '../../utils/dateParser';
 import isEqual from '../../utils/object-comparator';
 import Term from '../term/term';
-import "./add-form.css";
+import "./add-form.scss";
 
 const AddForm = () => {
 

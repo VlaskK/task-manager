@@ -1,0 +1,15 @@
+.add-todo {
+    width: 87%;
+}
+
+@media (max-width: 600px) {
+    .add-todo {
+        position: static;
+        top: 50px;
+        right: 200px;
+        width: 100%;
+        
+    }
+}
+
+

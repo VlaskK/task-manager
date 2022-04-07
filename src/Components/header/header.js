@@ -8,7 +8,7 @@ import Menu from '../menu/menu';
 
 import TaskItem from '../task-item/task-item';
 
-import "./header.css"
+import "./header.scss"
 
 
 const Header = () => {
@@ -23,17 +23,15 @@ const Header = () => {
     return (
         <div>
             <header className='header'>
-                <div className='header__menu'>
+                <div className='header__menu-icon'>
                     <AiOutlineMenu onClick={handleClick} />
-                    {isMenuVisible && <Menu className="menu" />}
                 </div>
-
                 <div className='header__left-group'>
                     <div className='header__notifications header__item'>
-                        <BiNotification size={25} />
+                        <BiNotification size={20} />
                     </div>
                     <div className='header__settings header__item'>
-                        <FiSettings size={25} />
+                        <FiSettings size={20} />
                     </div>
                     <div className='header__task-item header__item'>
                         <TaskItem />

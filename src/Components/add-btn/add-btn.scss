@@ -1,0 +1,42 @@
+.add-btn {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    margin-left: -2px;
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    bottom: 35px;
+
+    &__text {
+        margin: auto 5px;
+    }
+
+    &:hover {
+        color: rgb(156, 45, 45);
+    }
+    &__icon {
+        width: 30px;
+        height: 15px;
+    }    
+    &__filled-icon {
+        opacity: 0;
+        transition: .3s ease;
+    }
+    &__empty-icon{
+        position: absolute;
+        opacity: 1;
+        transition: .3s ease;
+    }
+    &:hover &__filled-icon{
+        opacity: 1;
+    }
+    
+    &:hover &__empty-icon{
+       opacity: 0;
+    }    
+}
+

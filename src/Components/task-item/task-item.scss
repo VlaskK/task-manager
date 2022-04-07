@@ -1,8 +1,9 @@
 .task-item {
     display: flex;
     justify-content: space-between;
+    
+    &__icon {
+        margin: auto 10px;
+    }
 }
 
-.task-item__icon {
-    margin: auto 10px;
-}

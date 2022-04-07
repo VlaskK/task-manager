@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import parseDate from '../../utils/dateParser';
 import isEqual from '../../utils/object-comparator';
 import Todo from '../todo/todo';
-import "./todo-list.css";
+import "./todo-list.scss";
 
 const TodoList = () => {
 

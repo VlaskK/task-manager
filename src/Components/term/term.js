@@ -10,7 +10,7 @@ import { MdNotInterested } from "react-icons/md";
 import Calendar from 'react-calendar';
 
 import "./calendar.css"
-import "./term.css";
+import "./term.scss";
 const Term = ({ setTodoTerm }) => {
 
     const termRef = useRef(null);

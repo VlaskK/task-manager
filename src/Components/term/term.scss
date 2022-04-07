@@ -1,0 +1,42 @@
+$shadow1: 0 1px 8px 0 rgb(0, 0, 0.08);
+$shadow2: 0 0 1px 0 rgb(0, 0, 0.3);
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+       -moz-box-shadow: $shadow;       
+            box-shadow: $shadow;
+  }
+
+.term {
+    position: absolute;
+    z-index: 1;
+    /* left: 350px;
+    inset: 0px 0px auto auto;
+    transform: translate3d(-1156.8px, 20px, 0px); */
+    background-color: #fff;
+    @include box-shadow(shadow1, shadow2) ;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    top: 150px;
+    left: 50px;
+    
+    &__list {
+        padding: 5px;
+        margin: 5px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    &__item {
+        margin: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+    
+    &__icon {
+        margin: auto 5px;
+    }
+}
